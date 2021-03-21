@@ -14,7 +14,6 @@ int Y[8] = { 480, 480, 480, 240, 240, 240, 0, 0 };
 
 void startGame() {
 	hideObject(startButton);
-	showObject(endButton);
 	showObject(a[0]);
 	showObject(a[1]);
 	showObject(a[2]);
@@ -24,6 +23,7 @@ void startGame() {
 	showObject(a[6]);
 	showObject(a[7]);
 	showObject(white);
+	showObject(endButton);
 }
 
 void endGame() {
