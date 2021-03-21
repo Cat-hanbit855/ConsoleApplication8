@@ -5,15 +5,16 @@
 
 SceneID scene1;
 ObjectID a[8];
-ObjectID white, startButton;
+ObjectID white, startButton, endButton;
 
 
 
-int aX[8] = { 50, 430, 860, 50, 430, 860, 50, 430 };
+int aX[8] = { 50, 430, 810, 50, 430, 810, 50, 430 };
 int Y[8] = { 480, 480, 480, 240, 240, 240, 0, 0 };
 
 void startGame() {
 	hideObject(startButton);
+	showObject(endButton);
 	showObject(a[0]);
 	showObject(a[1]);
 	showObject(a[2]);
@@ -32,11 +33,10 @@ void endGame() {
 // 게임 랜덤- 흰색칸 0 옆에 바꿀수 있는 흰칸 있으면 1 옆에 흰칸이 없으면 2
 // 2차원 배열(?) 을 통해서 위아래 양옆을 확인해보는 if문을 만들고 
 // 만약 0을 기준으로 1이 옆에 있으면 움직이도록 배치한다.
-//void random() {
+void random() {
 
-//}
+}
 // 함수를 여러개 만들어서 흰색 분할파일과 다른 파일을 변경하게 만들자.
-// 잘못됨.
 void check1() {
 	setObjectImage(white, "과제-001.jpg");
 	showObject(white);
@@ -139,6 +139,9 @@ void mouseCallback(ObjectID object, int x, int y, MouseAction aciton) {
 		check8();
 		check16();
 	}
+	else if (object == endButton) {
+		endGame();
+	}
 }
 
 int main() {
@@ -150,6 +153,10 @@ int main() {
 	startButton = createObject("start.png");
 	locateObject(startButton, scene1, 600, 50);
 	showObject(startButton);
+
+	endButton = createObject("end.png");
+	locateObject(endButton, scene1, 600, 20);
+	
 
 	a[0] = createObject("과제-001.jpg");
 	locateObject(a[0], scene1, 50, 480);
